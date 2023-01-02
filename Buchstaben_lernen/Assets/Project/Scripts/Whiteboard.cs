@@ -5,7 +5,9 @@ using UnityEngine;
 public class Whiteboard : MonoBehaviour
 {
     public Texture2D texture;
-    public Vector2 textureSize= new Vector2(2560, 1440);
+    public Vector2 textureSize= new Vector2(1200, 1200);
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -14,5 +16,5 @@ public class Whiteboard : MonoBehaviour
         texture = new Texture2D((int)textureSize.x, (int)textureSize.y);
         rend.material.mainTexture = texture;
     }
-
+   
 }

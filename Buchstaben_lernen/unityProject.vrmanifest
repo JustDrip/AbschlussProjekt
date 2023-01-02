@@ -1,0 +1,16 @@
+{
+  "source": "Unity",
+  "applications": [
+    {
+      "app_key": "application.generated.unity.buchstaben_lernen.exe",
+      "launch_type": "url",
+      "url": "steam://launch/",
+      "action_manifest_path": "E:\\Unity_Projekte\\Github\\AbschlussProjekt\\Buchstaben_lernen\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+      "strings": {
+        "en_us": {
+          "name": "Buchstaben_lernen [Testing]"
+        }
+      }
+    }
+  ]
+}

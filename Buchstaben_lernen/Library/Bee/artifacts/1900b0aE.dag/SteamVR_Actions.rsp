@@ -348,6 +348,7 @@
 "Assets/SteamVR_Input/ActionSetClasses/SteamVR_Input_ActionSet_buggy.cs"
 "Assets/SteamVR_Input/ActionSetClasses/SteamVR_Input_ActionSet_default.cs"
 "Assets/SteamVR_Input/ActionSetClasses/SteamVR_Input_ActionSet_mixedreality.cs"
+"Assets/SteamVR_Input/ActionSetClasses/SteamVR_Input_ActionSet_PencilHandling.cs"
 "Assets/SteamVR_Input/ActionSetClasses/SteamVR_Input_ActionSet_platformer.cs"
 "Assets/SteamVR_Input/SteamVR_Input_Actions.cs"
 "Assets/SteamVR_Input/SteamVR_Input_ActionSets.cs"

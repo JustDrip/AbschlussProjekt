@@ -2,12 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Valve.VR;
+using Valve.VR.InteractionSystem;
 
 public class Pencil : MonoBehaviour
 {
+    private Interactable inter;
+    public SteamVR_Action_Boolean switchPMode;
+    public SteamVR_Action_Boolean submitResult;
+    private int mode;
+    [SerializeField] private Material correct;
+    [SerializeField] private Material tipColor2;
+    [SerializeField] private Material tipColor1;
+    [SerializeField] private GameObject tip;
     [SerializeField] private Transform pHandle;
     [SerializeField] private Transform pTip;
     [SerializeField] private int pSize;
+    [SerializeField] private GameObject whiteBoard;
     private Whiteboard whiteB;
     private Renderer rend;
     private Color[] color;
@@ -17,12 +28,16 @@ public class Pencil : MonoBehaviour
     private Vector2 lastTouchPos;
     private bool touchedLastFrame;
     private Quaternion lastTouchRot;
+    public Texture2D letter;
+    public float quote;
     // Start is called before the first frame update
     void Start()
     {
         rend = pTip.GetComponent<Renderer>();
         color = Enumerable.Repeat(rend.material.color, pSize * pSize).ToArray();
         tHeight = pTip.localScale.y;
+        inter = GetComponent<Interactable>();
+        mode = 0;
         
     }
 
@@ -30,6 +45,13 @@ public class Pencil : MonoBehaviour
     void Update()
     {
         WriteOnWhiteBoard();
+        if (inter.attachedToHand != null)
+        {
+            //pencil is grabbed
+            switchMode();
+            check();
+        }
+        
     }
 
     void WriteOnWhiteBoard()
@@ -84,4 +106,65 @@ public class Pencil : MonoBehaviour
         pTip.position = new Vector3(pHandle.position.x, pHandle.position.y, pHandle.position.z);
         pTip.rotation = pHandle.rotation;
     }
+    void switchMode()
+    {
+        bool modeSwitch = false;
+        SteamVR_Input_Sources source = inter.attachedToHand.handType;
+        if (switchPMode[source].stateDown)
+        {
+            if(mode==0)
+            {
+                tip.GetComponent<MeshRenderer>().material = tipColor2;
+                mode = 1;
+                modeSwitch = true;
+            }
+            else
+            {
+                tip.GetComponent<MeshRenderer>().material = tipColor1;
+                mode = 0;
+                modeSwitch = true;
+            }
+        }
+
+        if (modeSwitch)
+        {
+            color = Enumerable.Repeat(rend.material.color, pSize * pSize).ToArray();
+            modeSwitch = false;
+        }
+
+    }
+
+    void check()
+    {
+
+        float treffer = 0;
+        Debug.Log(treffer);
+        float gesamtPixel = whiteBoard.GetComponent<Whiteboard>().textureSize.x * whiteBoard.GetComponent<Whiteboard>().textureSize.y;
+        Debug.Log(gesamtPixel);
+        SteamVR_Input_Sources source = inter.attachedToHand.handType;
+        if (submitResult[source].stateDown)
+        {
+            Texture2D submission = whiteBoard.GetComponent<Whiteboard>().texture;
+            for(int i=0; i<whiteBoard.GetComponent<Whiteboard>().textureSize.y; i++)
+            {
+                for(int j=0; j < whiteBoard.GetComponent<Whiteboard>().textureSize.y; j++)
+                {
+                    if (submission.GetPixel(i, j) == letter.GetPixel(i, j))
+                    {
+                        treffer++;
+                    }
+                }
+            }
+            float result = ((float)treffer / (float)gesamtPixel);
+            Debug.Log(result);
+
+            if (result >= quote)
+            {
+                tip.GetComponent<MeshRenderer>().material = correct;
+
+            }
+        }
+        
+    }
+
 }
