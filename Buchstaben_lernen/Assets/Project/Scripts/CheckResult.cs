@@ -1,15 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CheckResult : MonoBehaviour
 {
     //Variablen
     [SerializeField] private GameObject whiteBoard;
-    [SerializeField] private GameObject tip;
+    [SerializeField] private GameObject letter_object;
     [SerializeField] private Material correct;
     public Texture2D letter;
     public float quote;
+    private int level = 2;
 
 
     public void check()
@@ -35,9 +37,19 @@ public class CheckResult : MonoBehaviour
             Debug.Log(result);
             if (result >= quote)
             {
-                tip.GetComponent<MeshRenderer>().material = correct;
+                letter_object.SetActive(true);
+                
+                StartCoroutine(loadNextScene());
 
             }
+    }
 
+    public IEnumerator loadNextScene()
+    {
+        yield return new WaitForSeconds(5);
+        if (SceneManager.GetActiveScene().buildIndex < level - 1)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
     }
 }

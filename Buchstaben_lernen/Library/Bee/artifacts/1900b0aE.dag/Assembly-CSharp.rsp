@@ -386,6 +386,7 @@
 "Assets/Project/Scripts/ButtonScript.cs"
 "Assets/Project/Scripts/CheckResult.cs"
 "Assets/Project/Scripts/Pencil.cs"
+"Assets/Project/Scripts/Sonne.cs"
 "Assets/Project/Scripts/Whiteboard.cs"
 "Assets/TutorialInfo/Scripts/Readme.cs"
 -langversion:9.0
