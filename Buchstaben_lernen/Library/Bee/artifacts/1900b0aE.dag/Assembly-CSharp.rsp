@@ -383,6 +383,8 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.XR.LegacyInputHelpers.ref.dll"
 "Assets/Project/Scripts/AttachToHand.cs"
+"Assets/Project/Scripts/ButtonScript.cs"
+"Assets/Project/Scripts/CheckResult.cs"
 "Assets/Project/Scripts/Pencil.cs"
 "Assets/Project/Scripts/Whiteboard.cs"
 "Assets/TutorialInfo/Scripts/Readme.cs"

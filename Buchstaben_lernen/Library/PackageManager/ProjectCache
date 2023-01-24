@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638070345948423679
-    m_Hash: 3685608665
+      ticks: 638100976549229062
+    m_Hash: 4177977031
   m_LockFileStatus:
     m_FilePath: E:/Unity_Projekte/Github/AbschlussProjekt/Buchstaben_lernen/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638070345948468722
-    m_Hash: 2746872331
+      ticks: 638100976549229062
+    m_Hash: 3883434720
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:
@@ -31,7 +31,7 @@ m_LocalPackages:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637497179250000000
+      ticks: 638100976421763192
     m_Hash: 2919789393
 m_ProjectPath: E:/Unity_Projekte/Github/AbschlussProjekt/Buchstaben_lernen/Packages
 m_EditorVersion: 2021.3.13f1 (9e7d58001ecf)
@@ -118,6 +118,7 @@ m_ResolvedPackages:
     - 2.0.0-preview.20
     - 2.0.0-preview.21
     - 2.0.0-preview.22
+    - 2.0.0
     - 2.1.0-preview.3
     - 2.1.0-preview.5
     - 2.1.0-preview.6
@@ -131,6 +132,7 @@ m_ResolvedPackages:
     - 2.0.0-preview.20
     - 2.0.0-preview.21
     - 2.0.0-preview.22
+    - 2.0.0
     - 2.1.0-preview.3
     - 2.1.0-preview.5
     - 2.1.0-preview.6
@@ -237,11 +239,13 @@ m_ResolvedPackages:
     - 3.0.15
     - 3.0.16
     - 3.0.17
+    - 3.0.18
     compatible:
     - 3.0.15
     - 3.0.16
     - 3.0.17
-    verified: 3.0.17
+    - 3.0.18
+    verified: 3.0.18
   dependencies:
   - name: com.unity.ext.nunit
     version: 1.0.6

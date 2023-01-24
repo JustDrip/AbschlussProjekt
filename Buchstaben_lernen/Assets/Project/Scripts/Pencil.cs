@@ -49,7 +49,6 @@ public class Pencil : MonoBehaviour
         {
             //pencil is grabbed
             switchMode();
-            check();
         }
         
     }
@@ -106,6 +105,8 @@ public class Pencil : MonoBehaviour
         pTip.position = new Vector3(pHandle.position.x, pHandle.position.y, pHandle.position.z);
         pTip.rotation = pHandle.rotation;
     }
+
+    //Wechsel Stiftfarbe
     void switchMode()
     {
         bool modeSwitch = false;
@@ -133,38 +134,4 @@ public class Pencil : MonoBehaviour
         }
 
     }
-
-    void check()
-    {
-
-        float treffer = 0;
-        Debug.Log(treffer);
-        float gesamtPixel = whiteBoard.GetComponent<Whiteboard>().textureSize.x * whiteBoard.GetComponent<Whiteboard>().textureSize.y;
-        Debug.Log(gesamtPixel);
-        SteamVR_Input_Sources source = inter.attachedToHand.handType;
-        if (submitResult[source].stateDown)
-        {
-            Texture2D submission = whiteBoard.GetComponent<Whiteboard>().texture;
-            for(int i=0; i<whiteBoard.GetComponent<Whiteboard>().textureSize.y; i++)
-            {
-                for(int j=0; j < whiteBoard.GetComponent<Whiteboard>().textureSize.y; j++)
-                {
-                    if (submission.GetPixel(i, j) == letter.GetPixel(i, j))
-                    {
-                        treffer++;
-                    }
-                }
-            }
-            float result = ((float)treffer / (float)gesamtPixel);
-            Debug.Log(result);
-
-            if (result >= quote)
-            {
-                tip.GetComponent<MeshRenderer>().material = correct;
-
-            }
-        }
-        
-    }
-
 }
