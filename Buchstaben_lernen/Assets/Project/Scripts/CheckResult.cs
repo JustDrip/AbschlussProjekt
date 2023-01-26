@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class CheckResult : MonoBehaviour
 {
     //Variablen
     [SerializeField] private GameObject whiteBoard;
     [SerializeField] private GameObject letter_object;
-    [SerializeField] private Material correct;
+    [SerializeField] private Material correctResult;
+    [SerializeField] private Text btn_text;
     public Texture2D letter;
     public float quote;
     private int level = 2;
@@ -38,7 +40,8 @@ public class CheckResult : MonoBehaviour
             if (result >= quote)
             {
                 letter_object.SetActive(true);
-                
+                whiteBoard.GetComponent<MeshRenderer>().material = correctResult;
+                btn_text.text = "Richtig!";
                 StartCoroutine(loadNextScene());
 
             }
@@ -46,7 +49,7 @@ public class CheckResult : MonoBehaviour
 
     public IEnumerator loadNextScene()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(10);
         if (SceneManager.GetActiveScene().buildIndex < level - 1)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
