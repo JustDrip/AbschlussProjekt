@@ -21,15 +21,16 @@ public class CheckResult : MonoBehaviour
         float treffer = 0f;
         //1024 Pixel in 16 Schritten abprüfen -> 64*64 Pixel werden geprüft
         float gesamtPixel = 64*64;
-            //whiteBoard.GetComponent<Whiteboard>().textureSize.x * whiteBoard.GetComponent<Whiteboard>().textureSize.y;
+            //whiteBoard.GetComponent<Whiteboard>().textureSize.x * whiteBoard.GetComponent<Whiteboard>().textureSize.y; -> Falls alle Pixel geprüft werden sollen
         Debug.Log(gesamtPixel);
         Texture2D submission = whiteBoard.GetComponent<Whiteboard>().texture;
             for (int i = 0; i < whiteBoard.GetComponent<Whiteboard>().textureSize.y; i+=16)
             {
                 for (int j = 0; j < whiteBoard.GetComponent<Whiteboard>().textureSize.y; j+=16)
                 {
-                
-                    if (submission.GetPixel(i, j) == letter.GetPixel(i, j))
+                    Color subColor = submission.GetPixel(i, j);
+                    Color letColor = letter.GetPixel(i, j);
+                    if ((subColor.r == letColor.r) && (subColor.b == letColor.b) && (subColor.g == letColor.g))
                     {
                         treffer++;
                     }
