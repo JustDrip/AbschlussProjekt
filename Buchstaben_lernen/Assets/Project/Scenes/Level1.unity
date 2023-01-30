@@ -846,7 +846,7 @@ MonoBehaviour:
   correctResult: {fileID: 2100000, guid: bedb9b9a2cad14f42b578ee0f19f72ee, type: 2}
   btn_text: {fileID: 4303635606472956681}
   letter: {fileID: 2800000, guid: 875dca497f0629843b04a8dd98b84775, type: 3}
-  quote: 0.05
+  quote: 0.03
 --- !u!114 &4303635606472956681 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9129797875378459596, guid: f3d7d2d2cbc929245a7adaa118b2d3c6,
